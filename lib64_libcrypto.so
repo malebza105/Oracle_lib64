@@ -1,0 +1,15 @@
+######-------Installing missing libraries to oracle 9.6-------#######
+
+## This are missing lib64 libraries from my old server to my new server
+## old Centos 7 server and new will be Oracle 9.6
+
+#####--------Library information and location---------#######
+
+## /usr/lib64/.libcrypto.so.10.hmac
+## /usr/lib64/libcrypto.so.10
+
+export LD_LIBRARY_PATH=/opt/openssl10:$LD_LIBRARY_PATH
+
+cd /var/hnrt_prod/prod
+
+service parallel_run_devteam start && service parallel_run_devteam enable && service parallel_run_devteam status
